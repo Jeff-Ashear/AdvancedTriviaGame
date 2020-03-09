@@ -4,7 +4,7 @@ var losses = 0;
 var seconds = $("#gameTimer").text();
 var phase = 1;
 
-var correctAnswer = false;
+var answeredCorrectly = false;
 
 (function () {
     if (window.addEventListener) {
@@ -34,9 +34,10 @@ var correctAnswer = false;
         questionPhase1();
 
         function intermission() {
-            countdown = setInterval(function () {
-                seconds = 5
+            countdownIntermission = setInterval(function () {
+                console.log(seconds);
                 seconds--;
+                $("#gameTimer").text(seconds);
                 if (correctAnswer === true) {
                     $("#answerDiv").html("That's correct!<br>You've answered " + wins + " questions correctly so far.  Get ready for the next question!");
                 } else {
@@ -45,6 +46,7 @@ var correctAnswer = false;
                 if (seconds < 0) {
                     phase = phase + 1;
                     console.log(phase)
+                    switch ()
                 }
 
             }, 1000);
@@ -61,32 +63,36 @@ var correctAnswer = false;
         <input type="radio" name="group1" id="answer1C" value="3">Beck </input>
         <input type="radio" name="group1" id="answer1D" value="4">Radiohead </input>
         </div>`);
-            var countdown = setInterval(function () {
+            var countdown1 = setInterval(function () {
                 seconds--;
+
+                correctAnswer = "Nine Inch Nails";
                 $("#gameTimer").text(seconds);
-                if (document.getElementById('answer1B').checked) {
+                if ($("#answer1B").is(':checked')) {
+                    clearInterval(countdown1);
                     $("#questionDiv").empty();
                     $("#answerDiv").empty();
-                    seconds = 0;
-                    correctAnswer = true;
+                    seconds = 6;
+                    answeredCorrectly = true;
+                    correct
                     wins = wins + 1;
                     intermission();
                     console.log(correctAnswer);
-                } else if (document.getElementById(!'answer1b').checked) {
+                } else if ($("#answer1A").is(':checked') || $("#answer1C").is(':checked') || $("#answer1D").is(':checked')) {
+                    clearInterval(countdown1);
                     $("#questionDiv").empty();
                     $("#answerDiv").empty();
-                    seconds = 0;
-                    correctAnswer = "Nine Inch Nails";
+                    seconds = 6;
+                    answeredCorrectly = false;
                     losses = losses + 1;
                     intermission();
                     console.log(correctAnswer);
-
                 } else if (seconds === 0) {
-                    clearInterval(countdown);
+                    clearInterval(countdown1);
                     console.log("Time's up.")
                     $("#questionDiv").empty();
                     $("#answerDiv").empty();
-                    correctAnswer = "Nine Inch Nails";
+                    answeredCorrectly = false;
                     losses = losses + 1;
                     intermission();
                 }
@@ -95,13 +101,4 @@ var correctAnswer = false;
 
     });
 
-    //displays the first question
-    // displays a related image
-    // countdown begins
-    //check to see if the entered answer is correct, incorrect, or blank
-        // displays feedback
-            // if the answer was correct, display congrats
-            // if the answer was incorrect, displays the correct answer
-            // if the timer reaches 0 display the correct answer
-        //another countdown begins prompt question 2
-        //when the countdown ends display question 2 a repeat the above process
+
