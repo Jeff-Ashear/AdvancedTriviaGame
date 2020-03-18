@@ -43,21 +43,21 @@ $(document).on("click", "#startButton", function (event) {
             } else {
                 $("#answerDiv").html("Sorry not quite.<br>The correct answer was " + correctAnswer + "<br>You've answered " + wins + " so far.  Get ready for the next question!")
             }
-            if (seconds < 0) {
+            if (seconds === 0) {
                 phase = phase + 1;
                 console.log(phase)
+                $('input:checked').removeAttr('checked');
                 switch (phase) {
                     case 2:
                         console.log("Phase 2")
                         questionPhase2();
                         // seconds = 10;
                         break;
-                    case 3:
-                        questionPhase3();
-                        console.log("Phase 3")
-                        break;
+                    // case 3:
+                    //     questionPhase3();
+                    //     console.log("Phase 3")
+                    //     break;
                     default:
-                        $("body").color("red");
                         console.log("default");
                 }
             }
@@ -138,7 +138,8 @@ $(document).on("click", "#startButton", function (event) {
                 console.log(correctAnswer);
                 console.log("Answered Correctly? ", answeredCorrectly);
             } else if ($("#answer2A").is(':checked') || $("#answer2B").is(':checked') || $("#answer2D").is(':checked')) {
-                clearInterval(countdown1);
+                clearInterval(countdown2);
+                var checked = 
                 $("#questionDiv").empty();
                 $("#answerDiv").empty();
                 seconds = 5;
@@ -147,12 +148,13 @@ $(document).on("click", "#startButton", function (event) {
                 intermission();
                 console.log(correctAnswer);
             } else if (seconds === 0) {
-                clearInterval(countdown1);
+                clearInterval(countdown2);
                 console.log("Time's up.")
                 $("#questionDiv").empty();
                 $("#answerDiv").empty();
                 answeredCorrectly = false;
                 losses = losses + 1;
+                console.log("what's checked: ")
                 intermission();
             }
         }, 1000);
