@@ -14,6 +14,30 @@ $(document).ready(function startGame() {
     $("#startDiv").html('<button id="startButton">Click here to start</button>');
    
 });
+//win/loss functions go here
+function correctFunction() {
+    console.log("Yup!");
+    wins++;
+    console.log("wins", wins);
+    answeredCorrectly = true;                
+    intermission();
+}
+
+function incorrectFunction() {
+    console.log("Nope!");
+    losses++
+    console.log("Losses: ", losses);
+    answeredCorrectly = false;
+    console.log("correct answer: ", correctAnswer);
+    intermission();
+}
+
+function timedOut() {
+    console.log("Time's up!");
+    losses++;
+
+}
+
 
 //intermission function goes here:
 
@@ -23,8 +47,15 @@ function intermission() {
     console.log("phase: ", phase);
     $("#questionDiv").empty();
     $("#answerDiv").empty();
+    $("#gameTimerText").text("Get ready for the next Question!")
     seconds = 6;
+    if (answeredCorrectly == true) {
+        $("#questionDiv").text("That's correct!");
+    } else {
+        $("#questionDiv").text("Sorry!  The correct answer was " + correctAnswer);
+    }
     
+    $("#answerDiv").text("You've answered " + wins + " out of 11 questions correctly so far.")
     var countdownZero = setInterval(function(){
         console.log(seconds);
         seconds--;
@@ -32,6 +63,8 @@ function intermission() {
         if (seconds === 0) {
             clearInterval(countdownZero);
             console.log("Intermission has ended.")
+            $("#gameTimerText").text("Seconds Remaining:")
+            answeredCorrectly = false;
             switch (phase) {
                 case 2:
                     questionPhase2();
@@ -76,20 +109,18 @@ $(document).on("click", "#startButton", function(event) {
 
             //check for the correct answer here
             if ($("#answer1B").is(':checked')) {
-                console.log("Yup!");
                 clearInterval(countdown1);
-                wins++;
-                console.log("wins", wins);
-                
-                intermission();
+                correctFunction();
+            } else if ($("#answer1A").is(':checked') || $("#answer1C").is(':checked') || $("#answer1D").is(':checked')) {
+               clearInterval(countdown1);
+               incorrectFunction();
             }
 
             //check for the incorrect answer here
 
             if (seconds === 0) {
                 clearInterval(countdown1);
-                losses++;
-                console.log("time's up for countdown1")
+                timedOut();
                 intermission();
             }
         }, 1000);
@@ -98,6 +129,39 @@ $(document).on("click", "#startButton", function(event) {
 });
 
 function questionPhase2() {
-    console.log("Question Phase 2");
+    console.log("phase: ", phase);
     seconds = 10;
+    $("#questionDiv").text("2. If you asked someone to name only one band from the 90's, chances are that they will say:");
+    $("#answerDiv").html(`<div id="question2" class="text-center">
+        <input type="radio" name="group2" id="answer2A" value="1">Tool </input>
+        <input type="radio" name="group2" id="answer2B" value="2">Alice in Chains </input>
+        <input type="radio" name="group2" id="answer2C" value="3">Nirvana </input>
+        <input type="radio" name="group2" id="answer2D" value="4">Silver Chair </input>
+        </div>`);
+        correctAnswer = "Nirvana";
+        console.log("Correct Answer: ", correctAnswer);
+
+        var countdown2 = setInterval(function() {
+            seconds--;
+            console.log(seconds);
+            $("#gameTimer").text(seconds);
+
+            if ($("#answer2C").is(':checked')) {
+                clearInterval(countdown2);
+                correctFunction();
+            } else if ($("#answer2A").is(':checked') || $("#answer2B").is(':checked') || $("#answer2D").is(':checked')) {
+                clearInterval(countdown2);
+                incorrectFunction();
+            }
+
+            if (seconds === 0) {
+                clearInterval(countdown2);
+                timedOut();
+                intermission();
+            }
+        }, 1000);
+    
+
+
+
 }
