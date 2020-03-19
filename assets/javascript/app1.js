@@ -444,13 +444,16 @@ function questionPhase11() {
         $("#gameTimer").text(seconds);
         if ($("#answer11C").is(':checked')) {
             clearInterval(countdown11);
+            phase++;
             correctFunction();
         } else if ($("#answer11A").is(':checked') || $("#answer11B").is(':checked') || $("#answer11D").is(':checked')) {
             clearInterval(countdown11);
+            phase++;
             incorrectFunction();
         }
         if (seconds === 0) {
             clearInterval(countdown11);
+            phase++;
             timedOut();
         }
     }, 1000);
