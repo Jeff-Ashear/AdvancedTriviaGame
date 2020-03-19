@@ -14,28 +14,45 @@ $(document).ready(function startGame() {
     $("#startDiv").html('<button id="startButton">Click here to start</button>');
 
 });
-//win/loss functions go here
+//win/loss/timedOut/gameOver functions go here
 function correctFunction() {
-    console.log("Yup!");
-    wins++;
-    console.log("wins", wins);
-    answeredCorrectly = true;
-    intermission();
+    if (phase < 12) {
+        console.log("Yup!");
+        wins++;
+        console.log("wins", wins);
+        answeredCorrectly = true;
+        intermission();
+    } else {
+        gameOverFunction();
+    }
 }
 
 function incorrectFunction() {
-    console.log("Nope!");
-    losses++
-    console.log("Losses: ", losses);
-    answeredCorrectly = false;
-    console.log("correct answer: ", correctAnswer);
-    intermission();
+    if (phase < 12) {
+        console.log("Nope!");
+        losses++
+        console.log("Losses: ", losses);
+        answeredCorrectly = false;
+        console.log("correct answer: ", correctAnswer);
+        intermission();
+    } else {
+        gameOverFunction();
+    }
 }
 
 function timedOut() {
-    console.log("Time's up!");
-    losses++;
-    intermission();
+    if (phase < 12) {
+        console.log("Time's up!");
+        losses++;
+        intermission();
+    } else {
+        gameOverFunction();
+    }
+}
+
+function gameOverFunction() {
+    console.log("Game Over")
+    return;
 }
 
 
@@ -202,7 +219,7 @@ function questionPhase3() {
         if ($("#answer3A").is(':checked')) {
             clearInterval(countdown3);
             correctFunction();
-        } else if ($("#answer3B").is('checked') || $("#answer3C").is(':checked') || $("#answer3D").is(':checked')) {
+        } else if ($("#answer3B").is(':checked') || $("#answer3C").is(':checked') || $("#answer3D").is(':checked')) {
             clearInterval(countdown3);
             incorrectFunction();
         }
@@ -258,12 +275,182 @@ function questionPhase5() {
         if ($("#answer5D").is(':checked')) {
             clearInterval(countdown5);
             correctFunction();
-        } else if ($("#answer5A").is(':checked') || $("#answer5B").is(':checked') ||$("#answer5C").is(':checked')) {
+        } else if ($("#answer5A").is(':checked') || $("#answer5B").is(':checked') || $("#answer5C").is(':checked')) {
             clearInterval(countdown5);
             incorrectFunction();
         }
         if (seconds === 0) {
             clearInterval(countdown5);
+            timedOut();
+        }
+    }, 1000);
+}
+
+function questionPhase6() {
+    seconds = 10;
+    $("#questionDiv").text(`6. Mike Patton heads the band_____, known for combining avante garde jazz, disco, funk and death
+    metal.`);
+    $("#answerDiv").html(`<div id="question6" class="text-center">
+    <input type="radio" name="group6" id="answer6A" value="1">Primus</input>
+    <input type="radio" name="group6" id="answer6B" value="2">Mr. Bungle</input>
+    <input type="radio" name="group6" id="answer6C" value="3">Faith No More</input>
+    <input type="radio" name="group6" id="answer6D" value="4">Temple of the Dog</input>
+    </div>`);
+    correctAnswer = "Mr. Bungle";
+    var countdown6 = setInterval(function() {
+        seconds--;
+        console.log(seconds);
+        $("#gameTimer").text(seconds);
+        if ($("#answer6B").is(':checked')) {
+            clearInterval(countdown6);
+            correctFunction();
+        } else if ($("#answer6A").is(':checked') || $("#answer6C").is(':checked') || $("#answer6D").is(':checked')) {
+            clearInterval(countdown6);
+            incorrectFunction();
+        }
+        if (seconds === 0) {
+            clearInterval(countdown6);
+            timedOut();
+        }
+    }, 1000);
+}
+
+function questionPhase7() {
+    seconds = 10;
+    $("#questionDiv").text(`7. Experimental, playful, sophisticated, conceptual, complex, and swedish are all adjectives
+        applying to which artist:`);
+    $("#answerDiv").html(`<div id="question7" class="text-center">
+    <input type="radio" name="group7" id="answer7A" value="1">Bjork</input>
+    <input type="radio" name="group7" id="answer7B" value="2">Kennhy Wayne Shepard</input>
+    <input type="radio" name="group7" id="answer7C" value="3">Jeff Buckley</input>
+    <input type="radio" name="group7" id="answer7D" value="4">Jamiroquai</input>
+    </div>`);
+    correctAnswer = "Bjork";
+    var countdown7 = setInterval(function() {
+        seconds--;
+        console.log(seconds);
+        $("#gameTimer").text(seconds);
+        if ($("#answer7A").is(':checked')) {
+            clearInterval(countdown7);
+            correctFunction();
+        } else if ($("#answer7B").is(':checked') || $("#answer7C").is(':checked') || $("#answer7D").is(':checked')) {
+            clearInterval(countdown7);
+            incorrectFunction();
+        }
+        if (seconds === 0) {
+            clearInterval(countdown7);
+            timedOut();
+        }
+    }, 1000);
+}
+
+function questionPhase8() {
+    seconds = 10;
+    $("#questionDiv").text(`8. The guitarist for the band Radiohead is:`);
+    $("#answerDiv").html(`<div id="question8" class="text-center">
+    <input type="radio" name="group8" id="answer8A" value="1">Tom Morello</input>
+    <input type="radio" name="group8" id="answer8B" value="2">Johnny Greenwood</input>
+    <input type="radio" name="group8" id="answer8C" value="3">John Fuentes</input>
+    <input type="radio" name="group8" id="answer8D" value="4">Dave Navarro</input>
+    </div>`);
+    correctAnswer = "Johnny Greenwood";
+    var countdown8 = setInterval(function() {
+        seconds--;
+        console.log(seconds);
+        $("#gameTimer").text(seconds);
+        if ($("#answer8B").is(':checked')) {
+            clearInterval(countdown8);
+            correctFunction();
+        } else if ($("#answer8A").is(':checked') || $("#answer8C").is(':checked') || $("#answer8D").is(':checked')) {
+            clearInterval(countdown8);
+            incorrectFunction();
+        }
+        if (seconds === 0) {
+            clearInterval(countdown8);
+            timedOut();
+        }
+    }, 1000);
+}
+
+function questionPhase9() {
+    seconds = 10;
+    $("#questionDiv").text(`9. The drummer for the band Jane's Addiction is:`);
+    $("#answerDiv").html(`<div id="question9" class="text-center">
+    <input type="radio" name="group9" id="answer9A" value="1">Danny Carey</input>
+    <input type="radio" name="group9" id="answer9B" value="2">Jon Fishman</input>
+    <input type="radio" name="group9" id="answer9C" value="3">Matt Cameron</input>
+    <input type="radio" name="group9" id="answer9D" value="4">Stephen Perkins</input>
+    </div>`);
+    correctAnswer = "Stephen Perkins";
+    var countdown9 = setInterval(function() {
+        seconds--;
+        console.log(seconds);
+        $("#gameTimer").text(seconds);
+        if ($("#answer9D").is(':checked')) {
+            clearInterval(countdown9);
+            correctFunction();
+        } else if ($("#answer9A").is(':checked') || $("#answer9B").is(':checked') || $("#answer9C").is(':checked')) {
+            clearInterval(countdown9);
+            incorrectFunction();
+        }
+        if (seconds === 0) {
+            clearInterval(countdown9);
+            timedOut();
+        }
+    }, 1000);
+}
+
+function questionPhase10() {
+    seconds = 10;
+    $("#questionDiv").text(`10. Pearl Jam's first album was titled:`);
+    $("#answerDiv").html(`<div id="question10" class="text-center">
+    <input type="radio" name="group10" id="answer10A" value="1">Vitology</input>
+    <input type="radio" name="group10" id="answer10B" value="2">Ten</input>
+    <input type="radio" name="group10" id="answer10C" value="3">Binaural</input>
+    <input type="radio" name="group10" id="answer10D" value="4">No Code</input>
+    </div>`);
+    correctAnswer = "Ten";
+    var countdown10 = setInterval(function() {
+        seconds--;
+        console.log(seconds);
+        $("#gameTimer").text(seconds);
+        if ($("#answer10B").is(':checked')) {
+            clearInterval(countdown10);
+            correctFunction();
+        } else if ($("#answer10A").is(':checked') || $("#answer10C").is(':checked') || $("#answer10D").is(':checked')) {
+            clearInterval(countdown10);
+            incorrectFunction();
+        }
+        if (seconds === 0) {
+            clearInterval(countdown10);
+            timedOut();
+        }
+    }, 1000);
+}
+
+function questionPhase11() {
+    seconds = 10;
+    $("#questionDiv").text(`11. Which act combines rock, blues, experimental jazz, classical, avante guarde, pop, and doo-wap?`);
+    $("#answerDiv").html(`<div id="question11" class="text-center">
+    <input type="radio" name="group11" id="answer11A" value="1">They Might Be Giants</input>
+    <input type="radio" name="group11" id="answer11B" value="2">Faith No More</input>
+    <input type="radio" name="group11" id="answer11C" value="3">Frank Zappa</input>
+    <input type="radio" name="group11" id="answer11D" value="4">Ween</input>
+    </div>`);
+    correctAnswer = "Frank Zappa";
+    var countdown11 = setInterval(function() {
+        seconds--;
+        console.log(seconds);
+        $("#gameTimer").text(seconds);
+        if ($("#answer11C").is(':checked')) {
+            clearInterval(countdown11);
+            correctFunction();
+        } else if ($("#answer11A").is(':checked') || $("#answer11B").is(':checked') || $("#answer11D").is(':checked')) {
+            clearInterval(countdown11);
+            incorrectFunction();
+        }
+        if (seconds === 0) {
+            clearInterval(countdown11);
             timedOut();
         }
     }, 1000);
