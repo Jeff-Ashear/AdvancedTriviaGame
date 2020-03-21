@@ -50,14 +50,45 @@ function timedOut() {
     }
 }
 
+//when all questions have been answered or timed out the game ends.
 function gameOverFunction() {
     console.log("Game Over")
-    return;
+    seconds = 6;
+    $("#gameTimerText").text("You've answered all the questions! Stay tuned for some reverse trivia:");
+    $("#questionDiv").empty();
+    $("#questionDiv").text("You answered " + wins + " questions correctly.")
+    $("#answerDiv").empty();
+    var countdown12 = setInterval(function() {
+        seconds--;
+        console.log(seconds);
+        $("#gameTimer").text(seconds);
+        if (seconds === 0) {
+            clearInterval(countdown12);
+            triviaTidBit();
+        }
+    }, 1000);   
+}
+
+//reward and restart screen and function
+function triviaTidBit() {
+    console.log("Restart?");
+    seconds = 10;
+    phase = 1;
+    answeredCorrectly = false;
+    wins = 0;
+    losses = 0;
+    $("#gameTimerText").text("Want to try again?");
+    $("#startDiv").html("<button>Click here to play again.</button>");
+    $(document).on("click", "#startDiv", function(event) {
+        event.preventDefault;
+        $("#gameTimerText").empty();
+        $("#startDiv").empty();
+        questionPhase1();
+    });
 }
 
 
 //intermission function goes here:
-
 function intermission() {
     console.log("intermission");
     phase++;
@@ -129,6 +160,7 @@ $(document).on("click", "#startButton", function (event) {
     $("#instructions").empty();
     $("#gameTimerText").text("Seconds Remaining:");
     questionPhase1();
+});
 
     //each question has its own questionPhase function.
     function questionPhase1() {
@@ -169,7 +201,6 @@ $(document).on("click", "#startButton", function (event) {
         }, 1000);
     }
 
-});
 
 function questionPhase2() {
     console.log("phase: ", phase);
