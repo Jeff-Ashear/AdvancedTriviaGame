@@ -2,4 +2,12 @@ header {
     text-align: center;
     border-width: 2px;
     border-color: blue;
+    background-image: url("../images/HeaderBG.jpg");
+
+}
+
+#bGPics {
+    background-image: url(../images/beavis-and-butthead-nin.jpg);
+    background-repeat: repeat;
+
 }

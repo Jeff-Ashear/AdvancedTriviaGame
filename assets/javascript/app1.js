@@ -7,6 +7,51 @@ var seconds = 11;
 correctAnswer = "";
 var answeredCorrectly = false;
 
+var backgrounds = [
+    "./assets/images/crowdsurfing.jpg",
+    "./assets/images/nin.png",
+    "./assets/images/beck.jpg",
+    "./assets/images/REM.jpg",
+    "./assets/images/zappa.jpeg",
+    "./assets/images/soundgarden.jpg",
+    "./assets/images/trent.jpg",
+    "./assets/images/radiohead.jpg",
+    "./assets/images/tom-morello.jpg",
+    "./assets/images/lateralis.jpg",
+    "./assets/images/GNR.jpg",
+    "./assets/images/janesaddiction.jpg",
+    "./assets/images/tool.jpg",
+    "./assets/images/beavis-and-butthead-nin.jpg",
+    "./assets/images/aliceInChains.jpg",
+    "./assets/images/lateralis2.png",
+    "./assets/images/trent2.jpg",
+    "./assets/images/Rage-Against-the-Machine.jpg",
+    "./assets/images/frank.jpg",
+    "./assets/images/kurtd.jpg",
+    
+    "./assets/images/crowdsurfing.jpg",
+    "./assets/images/nin.png",
+    "./assets/images/beck.jpg",
+    "./assets/images/REM.jpg",
+    "./assets/images/zappa.jpeg",
+    "./assets/images/soundgarden.jpg",
+    "./assets/images/trent.jpg",
+    "./assets/images/radiohead.jpg",
+    "./assets/images/tom-morello.jpg",
+    "./assets/images/lateralis.jpg",
+    "./assets/images/GNR.jpg",
+    "./assets/images/janesaddiction.jpg",
+    "./assets/images/tool.jpg",
+    "./assets/images/beavis-and-butthead-nin.jpg",
+    "./assets/images/aliceInChains.jpg",
+    "./assets/images/lateralis2.png",
+    "./assets/images/trent2.jpg",
+    "./assets/images/Rage-Against-the-Machine.jpg",
+    "./assets/images/frank.jpg",
+    "./assets/images/kurtd.jpg"
+
+]
+
 //function to prepare the game and offer instructions
 $(document).ready(function startGame() {
     console.log("Ready set go");
@@ -58,7 +103,7 @@ function gameOverFunction() {
     $("#questionDiv").empty();
     $("#questionDiv").text("You answered " + wins + " questions correctly.")
     $("#answerDiv").empty();
-    var countdown12 = setInterval(function() {
+    var countdown12 = setInterval(function () {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
@@ -66,7 +111,7 @@ function gameOverFunction() {
             clearInterval(countdown12);
             triviaTidBit();
         }
-    }, 1000);   
+    }, 1000);
 }
 
 //reward and restart screen and function
@@ -79,7 +124,7 @@ function triviaTidBit() {
     losses = 0;
     $("#gameTimerText").text("Want to try again?");
     $("#startDiv").html("<button>Click here to play again.</button>");
-    $(document).on("click", "#startDiv", function(event) {
+    $(document).on("click", "#startDiv", function (event) {
         event.preventDefault;
         $("#gameTimerText").empty();
         $("#startDiv").empty();
@@ -162,44 +207,46 @@ $(document).on("click", "#startButton", function (event) {
     questionPhase1();
 });
 
-    //each question has its own questionPhase function.
-    function questionPhase1() {
-        console.log("Phase ", phase);
-        $("#startDiv").empty();
-        $("#questionDiv").text(`1. The (often one-man) band who's work revitalized use of the synthesizer, and revolutionized
+//each question has its own questionPhase function.
+function questionPhase1() {
+    console.log("Phase ", phase);
+    $("#startDiv").empty();
+    $("#questionDiv").text(`1. The (often one-man) band who's work revitalized use of the synthesizer, and revolutionized
         the presence of electronics in music is:`);
-        $("#answerDiv").html(`<div id="question1" class="text-center">
+    $("#answerDiv").html(`<div id="question1" class="text-center">
         <input type="radio" name="group1" id="answer1A" value="1">Sound Garden </input>
         <input type="radio" name="group1" id="answer1B" value="2">Nine Inch Nails </input>
         <input type="radio" name="group1" id="answer1C" value="3">Beck </input>
         <input type="radio" name="group1" id="answer1D" value="4">Radiohead </input>
         </div>`);
-        correctAnswer = "Nine Inch Nails";
-        console.log("Correct Answer: ", correctAnswer);
+    correctAnswer = "Nine Inch Nails";
+    console.log("Correct Answer: ", correctAnswer);
 
-        //timer function:
-        var countdown1 = setInterval(function () {
-            seconds--;
-            console.log(seconds)
-            $("#gameTimer").text(seconds);
+    //timer function:
+    var countdown1 = setInterval(function () {
+        seconds--;
+        console.log(seconds)
+        $("#gameTimer").text(seconds);
+        $("#bGPics").html('<img src="' + backgrounds[seconds] + '">')
 
-            //check for the correct answer here
-            if ($("#answer1B").is(':checked')) {
-                clearInterval(countdown1);
-                correctFunction();
-            } else if ($("#answer1A").is(':checked') || $("#answer1C").is(':checked') || $("#answer1D").is(':checked')) {
-                clearInterval(countdown1);
-                incorrectFunction();
-            }
+        //check for the correct answer here
+        if ($("#answer1B").is(':checked')) {
+            clearInterval(countdown1);
+            $("#bGPics").html('<img src="../images/trent2.jpg">');
+            correctFunction();
+        } else if ($("#answer1A").is(':checked') || $("#answer1C").is(':checked') || $("#answer1D").is(':checked')) {
+            clearInterval(countdown1);
+            incorrectFunction();
+        }
 
-            //check for the incorrect answer here
+        //check for the incorrect answer here
 
-            if (seconds === 0) {
-                clearInterval(countdown1);
-                timedOut();
-            }
-        }, 1000);
-    }
+        if (seconds === 0) {
+            clearInterval(countdown1);
+            timedOut();
+        }
+    }, 1000);
+}
 
 
 function questionPhase2() {
@@ -271,7 +318,7 @@ function questionPhase4() {
     <input type="radio" name="group4" id="answer4D" value="4">Nirvana in Seattle</input>
     </div>`);
     correctAnswer = "Kyuss in L.A.";
-    var countdown4 = setInterval(function() {
+    var countdown4 = setInterval(function () {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
@@ -299,7 +346,7 @@ function questionPhase5() {
     <input type="radio" name="group5" id="answer5D" value="4">Rage Against the Machine</input>
     </div>`);
     correctAnswer = "Rage Against the Machine";
-    var countdown5 = setInterval(function() {
+    var countdown5 = setInterval(function () {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
@@ -328,7 +375,7 @@ function questionPhase6() {
     <input type="radio" name="group6" id="answer6D" value="4">Temple of the Dog</input>
     </div>`);
     correctAnswer = "Mr. Bungle";
-    var countdown6 = setInterval(function() {
+    var countdown6 = setInterval(function () {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
@@ -357,7 +404,7 @@ function questionPhase7() {
     <input type="radio" name="group7" id="answer7D" value="4">Jamiroquai</input>
     </div>`);
     correctAnswer = "Bjork";
-    var countdown7 = setInterval(function() {
+    var countdown7 = setInterval(function () {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
@@ -385,7 +432,7 @@ function questionPhase8() {
     <input type="radio" name="group8" id="answer8D" value="4">Dave Navarro</input>
     </div>`);
     correctAnswer = "Johnny Greenwood";
-    var countdown8 = setInterval(function() {
+    var countdown8 = setInterval(function () {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
@@ -413,7 +460,7 @@ function questionPhase9() {
     <input type="radio" name="group9" id="answer9D" value="4">Stephen Perkins</input>
     </div>`);
     correctAnswer = "Stephen Perkins";
-    var countdown9 = setInterval(function() {
+    var countdown9 = setInterval(function () {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
@@ -441,7 +488,7 @@ function questionPhase10() {
     <input type="radio" name="group10" id="answer10D" value="4">No Code</input>
     </div>`);
     correctAnswer = "Ten";
-    var countdown10 = setInterval(function() {
+    var countdown10 = setInterval(function () {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
@@ -469,7 +516,7 @@ function questionPhase11() {
     <input type="radio" name="group11" id="answer11D" value="4">Ween</input>
     </div>`);
     correctAnswer = "Frank Zappa";
-    var countdown11 = setInterval(function() {
+    var countdown11 = setInterval(function () {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
