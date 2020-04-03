@@ -130,13 +130,15 @@ function triviaTidBit() {
     answeredCorrectly = false;
     wins = 0;
     losses = 0;
-    $("#gameTimerText").text("Want to try again?");
-    $("#promptField").html("<p>")
+    $("#gameTimerText").text("Want to try again?  Click the button bellow.");
+    $("#promptField").html("<br><br><br><br><h3>Thanks for playing.  Take with you this delicious morsel of 90’s music lore trivia:  The icon of this era, Nirvana, is credited with inventing the Seattle Sound (otherwise known as Grunge).  However this isn’t exactly true.  Many argue that Joshua Homme did so with his band, Kyuss, in Palm Desert, California in the late 80’s.  Kyuss enjoyed only a small cultish fame.  <br> People would gather for huge, drug-fueled concert parties in remote locations deep in the desert wilderness; something like a primitive version of Burning Man.  The concerts would last for literally days without a break.  In this setting bands were expected to play for hours.  What emerged was something incorporating early metal combined with the long, meandering forms of jam bands like the Phish or Widespread Panic.  Kyuss grew to dominate this scene, and then eventually disbanded without ever achieving mainstream popularity.  <br>  Seattle bands discovered this sound and made it wildly popular.  The 90’s came and went, and the popularity of this style faded.  <br>  Later Joshua Homme founded a new band, Queens of the Stone Age, which is much more successful than Kyuss was.  The name of this band is actually a brief description of Homme’s misplacement in this history.  The Stone Age, is 90’s grunge.  And while he was never the king, his bands were always the Queens behind the scenes.");
     $("#startDiv").html("<button>Click here to play again.</button>");
+    $("#flavorPics").html('<img src="./assets/images/kyuss.jpg">');
     $(document).on("click", "#startDiv", function (event) {
         event.preventDefault;
         $("#gameTimerText").empty();
         $("#startDiv").empty();
+        $("#promptField").empty();
         questionPhase1();
     });
 }
