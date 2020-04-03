@@ -18,6 +18,7 @@ header {
 
 #timerField {
     justify-content: center;
+    border-style: solid;
     border-width: 10px;
     border-color: rgb(150, 60, 235);
     border-radius: 3px;
@@ -26,16 +27,18 @@ header {
 
 #promptField {
     justify-content: center;
+    border-style: solid;
     border-width: 3px;
     border-radius: 3px;
     border-color: rgb(60, 127, 235);
     background-color: rgba(57, 56, 58, 0.815);
     color: rgb(60, 127, 235);
-    margin: auto, 10px; 
+    margin: 10px auto; 
 }
 
 #controlField {
     justify-content: center;
+    border-style: solid;
     border-width: 3px;
     border-radius: 3px;
     border-color: rgb(60, 127, 235);
@@ -44,5 +47,11 @@ header {
     margin: auto, 10px;
 }
 #flavorPics {
-    background-size: contain;
+    justify-items: center;
+    padding: 20px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(247, 165, 57);
+    background-color: rgba(150, 60, 235, 0.6);
+    margin: auto, 10px;
 }

@@ -22,7 +22,6 @@ var backgrounds = [
     "./assets/images/GNR.jpg",
     "./assets/images/janesaddiction.jpg",
     "./assets/images/tool.jpg",
-    "./assets/images/beavis-and-butthead-nin.jpg",
     "./assets/images/aliceInChains.jpg",
     "./assets/images/lateralis2.png",
     "./assets/images/trent2.jpg",
@@ -38,6 +37,7 @@ var backgrounds = [
     "./assets/images/nin.png",
     "./assets/images/beck.jpg",
     "./assets/images/REM.jpg",
+    "./assets/images/Bjork2.jpg",
     "./assets/images/zappa.jpeg",
     "./assets/images/soundgarden.jpg",
     "./assets/images/trent.jpg",
@@ -47,13 +47,16 @@ var backgrounds = [
     "./assets/images/GNR.jpg",
     "./assets/images/janesaddiction.jpg",
     "./assets/images/tool.jpg",
-    "./assets/images/beavis-and-butthead-nin.jpg",
     "./assets/images/aliceInChains.jpg",
     "./assets/images/lateralis2.png",
     "./assets/images/trent2.jpg",
     "./assets/images/Rage-Against-the-Machine.jpg",
     "./assets/images/frank.jpg",
-    "./assets/images/kurtd.jpg"
+    "./assets/images/kurtd.jpg",
+    "./assets/images/Mr-Bungle-1.jpg",
+    "./assets/images/Bjork2.jpg",
+    "./assets/images/ten.jpg",
+    "./assets/images/Stephen-Perkins-26.jpg",
 
 ]
 
@@ -136,6 +139,11 @@ function triviaTidBit() {
         questionPhase1();
     });
 }
+
+
+
+
+
 
 
 //intermission function goes here:
@@ -252,7 +260,6 @@ function questionPhase1() {
         }
     }, 1000);
 }
-
 
 function questionPhase2() {
     console.log("phase: ", phase);
