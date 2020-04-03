@@ -6,8 +6,43 @@ header {
 
 }
 
-#bGPics {
+#bgPics {
     background-image: url(../images/beavis-and-butthead-nin.jpg);
     background-repeat: repeat;
+}
 
+#flavorPics {
+    background-image: cover;
+
+}
+
+#timerField {
+    justify-content: center;
+    border-width: 10px;
+    border-color: rgb(150, 60, 235);
+    border-radius: 3px;
+    background-color: rgba(247, 165, 57, 0.644);
+}
+
+#promptField {
+    justify-content: center;
+    border-width: 3px;
+    border-radius: 3px;
+    border-color: rgb(60, 127, 235);
+    background-color: rgba(57, 56, 58, 0.815);
+    color: rgb(60, 127, 235);
+    margin: auto, 10px; 
+}
+
+#controlField {
+    justify-content: center;
+    border-width: 3px;
+    border-radius: 3px;
+    border-color: rgb(60, 127, 235);
+    background-color: rgba(57, 56, 58, 0.815);
+    color: rgb(60, 127, 235);
+    margin: auto, 10px;
+}
+#flavorPics {
+    background-size: contain;
 }

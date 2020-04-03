@@ -12,6 +12,7 @@ var backgrounds = [
     "./assets/images/nin.png",
     "./assets/images/beck.jpg",
     "./assets/images/REM.jpg",
+    "./assets/images/Bjork2.jpg",
     "./assets/images/zappa.jpeg",
     "./assets/images/soundgarden.jpg",
     "./assets/images/trent.jpg",
@@ -28,6 +29,10 @@ var backgrounds = [
     "./assets/images/Rage-Against-the-Machine.jpg",
     "./assets/images/frank.jpg",
     "./assets/images/kurtd.jpg",
+    "./assets/images/Mr-Bungle-1.jpg",
+    "./assets/images/Bjork2.jpg",
+    "./assets/images/ten.jpg",
+    "./assets/images/Stephen-Perkins-26.jpg",
     
     "./assets/images/crowdsurfing.jpg",
     "./assets/images/nin.png",
@@ -227,12 +232,12 @@ function questionPhase1() {
         seconds--;
         console.log(seconds)
         $("#gameTimer").text(seconds);
-        $("#bGPics").html('<img src="' + backgrounds[seconds] + '">')
+        $("#flavorPics").html('<img src="' + backgrounds[seconds] + '">');
 
         //check for the correct answer here
         if ($("#answer1B").is(':checked')) {
             clearInterval(countdown1);
-            $("#bGPics").html('<img src="../images/trent2.jpg">');
+            $("#flavorPics").html('<img src="./assets/images/trent2.jpg">');
             correctFunction();
         } else if ($("#answer1A").is(':checked') || $("#answer1C").is(':checked') || $("#answer1D").is(':checked')) {
             clearInterval(countdown1);
@@ -266,8 +271,10 @@ function questionPhase2() {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
+        $("#flavorPics").html('<img src="' + backgrounds[seconds + 1] + '">');
         if ($("#answer2C").is(':checked')) {
             clearInterval(countdown2);
+            $("#flavorPics").html('<img src="./assets/images/kurtd.jpg">');
             correctFunction();
         } else if ($("#answer2A").is(':checked') || $("#answer2B").is(':checked') || $("#answer2D").is(':checked')) {
             clearInterval(countdown2);
@@ -294,8 +301,10 @@ function questionPhase3() {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
+        $("#flavorPics").html('<img src="' + backgrounds[seconds * 2] + '">');
         if ($("#answer3A").is(':checked')) {
             clearInterval(countdown3);
+            $("#flavorPics").html('<img src="./assets/images/beck.jpg">');
             correctFunction();
         } else if ($("#answer3B").is(':checked') || $("#answer3C").is(':checked') || $("#answer3D").is(':checked')) {
             clearInterval(countdown3);
@@ -322,8 +331,10 @@ function questionPhase4() {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
+        $("#flavorPics").html('<img src="' + backgrounds[seconds + 3] + '">')
         if ($("#answer4A").is(':checked')) {
             clearInterval(countdown4);
+            $("#flavorPics").html('<img src="./assets/images/kyuss.jpg">');
             correctFunction();
         } else if ($("#answer4B").is(':checked') || $("#answer4C").is(':checked') || $("#answer4D").is(':checked')) {
             clearInterval(countdown4);
@@ -350,8 +361,10 @@ function questionPhase5() {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
+        $("#flavorPics").html('<img src="' + backgrounds[seconds + 4] + '">');
         if ($("#answer5D").is(':checked')) {
             clearInterval(countdown5);
+            $("#flavorPics").html('<img src="./assets/images/Rage-Against-the-Machine.jpg">');
             correctFunction();
         } else if ($("#answer5A").is(':checked') || $("#answer5B").is(':checked') || $("#answer5C").is(':checked')) {
             clearInterval(countdown5);
@@ -378,9 +391,11 @@ function questionPhase6() {
     var countdown6 = setInterval(function () {
         seconds--;
         console.log(seconds);
+        $("#flavorPics").html('<img src="' + backgrounds[seconds * 3] + '">');
         $("#gameTimer").text(seconds);
         if ($("#answer6B").is(':checked')) {
             clearInterval(countdown6);
+            $("#flavorPics").html('<img src="./assets/images/Mr-Bungle-1.jpg">');
             correctFunction();
         } else if ($("#answer6A").is(':checked') || $("#answer6C").is(':checked') || $("#answer6D").is(':checked')) {
             clearInterval(countdown6);
@@ -408,8 +423,10 @@ function questionPhase7() {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
+        $("#flavorPics").html('<img src="' + backgrounds[seconds + 6] + '">');
         if ($("#answer7A").is(':checked')) {
             clearInterval(countdown7);
+            $("#flavorPics").html('<img src="./assets/images/Bjork1.jpg">');
             correctFunction();
         } else if ($("#answer7B").is(':checked') || $("#answer7C").is(':checked') || $("#answer7D").is(':checked')) {
             clearInterval(countdown7);
@@ -436,8 +453,10 @@ function questionPhase8() {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
+        $("#flavorPics").html('<img src="' + backgrounds[seconds + 7] + '">');
         if ($("#answer8B").is(':checked')) {
             clearInterval(countdown8);
+            $("#flavorPics").html('<img src="./assets/images/jonny.jpg">');
             correctFunction();
         } else if ($("#answer8A").is(':checked') || $("#answer8C").is(':checked') || $("#answer8D").is(':checked')) {
             clearInterval(countdown8);
@@ -462,10 +481,12 @@ function questionPhase9() {
     correctAnswer = "Stephen Perkins";
     var countdown9 = setInterval(function () {
         seconds--;
+        $("#flavorPics").html('<img src="' + backgrounds[seconds + 8] + '">');
         console.log(seconds);
         $("#gameTimer").text(seconds);
         if ($("#answer9D").is(':checked')) {
             clearInterval(countdown9);
+            $("#flavorPics").html('<img src="./assets/images/Stephen-Perkins-26.jpeg">');
             correctFunction();
         } else if ($("#answer9A").is(':checked') || $("#answer9B").is(':checked') || $("#answer9C").is(':checked')) {
             clearInterval(countdown9);
@@ -492,8 +513,10 @@ function questionPhase10() {
         seconds--;
         console.log(seconds);
         $("#gameTimer").text(seconds);
+        $("#flavorPics").html('<img src="' + backgrounds[seconds + 4] + '">');
         if ($("#answer10B").is(':checked')) {
             clearInterval(countdown10);
+            $("#flavorPics").html('<img src="./assets/images/ten.jpg">');
             correctFunction();
         } else if ($("#answer10A").is(':checked') || $("#answer10C").is(':checked') || $("#answer10D").is(':checked')) {
             clearInterval(countdown10);
@@ -518,20 +541,25 @@ function questionPhase11() {
     correctAnswer = "Frank Zappa";
     var countdown11 = setInterval(function () {
         seconds--;
+        $("#flavorPics").html('<img src="' + backgrounds[seconds] + '">');
         console.log(seconds);
         $("#gameTimer").text(seconds);
         if ($("#answer11C").is(':checked')) {
             clearInterval(countdown11);
             phase++;
+            wins++;
+            $("#flavorPics").html('<img src="./assets/images/frank.jpg">');
             correctFunction();
         } else if ($("#answer11A").is(':checked') || $("#answer11B").is(':checked') || $("#answer11D").is(':checked')) {
             clearInterval(countdown11);
             phase++;
+            losses++;
             incorrectFunction();
         }
         if (seconds === 0) {
             clearInterval(countdown11);
             phase++;
+            losses++;
             timedOut();
         }
     }, 1000);
