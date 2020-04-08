@@ -213,7 +213,6 @@ function intermission() {
 }
 
 
-
 //function which starts the game and all the timers
 $(document).on("click", "#startButton", function (event) {
     event.preventDefault;
