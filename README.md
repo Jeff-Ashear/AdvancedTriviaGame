@@ -3,7 +3,7 @@
 
 Thank you for looking at the 90’s music trivia app!
 
-![Welcome](./assets/images/AdvancedTrivia.JPG)
+![Welcome](./assets/images/AdvancedTrivia1.JPG)
 
 Relevant links:
 		
