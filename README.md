@@ -1,7 +1,11 @@
 # AdvancedTriviaGame
 
-
 Thank you for looking at the 90’s music trivia app!
+
+My portfolio: 
+
+                https://tinyurl.com/jeffashear
+
 
 ![Welcome](./assets/images/AdvancedTrivia1.JPG)
 
@@ -15,17 +19,6 @@ Relevant links:
 
 
         Thank you for looking at the 90’s music trivia app!
-
-Relevant links:
-		
-		Deployed project:
-		https://tinyurl.com/90s-music-trivia
-
-		Code repo:
-		https://tinyurl.com/90s-trivia-repo
-
-
-
 
 
 1. Purpose for this app:
